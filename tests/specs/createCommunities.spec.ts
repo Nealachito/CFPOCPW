@@ -108,12 +108,7 @@ test('CC - Create normal community', async ({ page }, testInfo) => {
 
   await page.getByRole('button', { name: 'Siguiente' }).click();
   
-  //await waitUntilImportProcessed(page);
-  await page.waitForResponse(resp =>
-  resp.url().includes('/imports') &&
-  resp.status() === 200
-);
-
+  await waitUntilImportProcessed(page);
   
   const selector = page.locator('[data-cf-selector-target="dropdown"]');
 
